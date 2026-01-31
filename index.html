@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Manager Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>🚀 Project Manager Pro</h1>
+  <div class="project-bar">
+    <input type="text" id="projectName" placeholder="New Project Name">
+    <button onclick="addProject()">Add Project</button>
+    <select id="projectSelect" onchange="switchProject()"></select>
+  </div>
+</header>
+
+<section class="task-form">
+  <input type="text" id="taskTitle" placeholder="Task title">
+  <input type="date" id="dueDate">
+  <select id="priority">
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+  <textarea id="description" placeholder="Task description"></textarea>
+  <button onclick="addTask()">Add Task</button>
+</section>
+
+<main class="board">
+  <div class="column" data-status="opened" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>📂 Opened</h2>
+    <div class="task-list" id="opened"></div>
+  </div>
+  <div class="column" data-status="processing" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>⚙ Processing</h2>
+    <div class="task-list" id="processing"></div>
+  </div>
+  <div class="column" data-status="waiting" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>⏳ Waiting</h2>
+    <div class="task-list" id="waiting"></div>
+  </div>
+  <div class="column" data-status="completed" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>✅ Completed</h2>
+    <div class="task-list" id="completed"></div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
